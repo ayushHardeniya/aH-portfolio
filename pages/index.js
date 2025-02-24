@@ -1,64 +1,56 @@
-import { useEffect } from "react"; import Navbar from "../components/Navbar"; import Footer from "../components/Footer"; import SocialLinks from "../components/SocialLinks"; import BlogList from "../components/BlogList";
+import Head from 'next/head'; import Navbar from '../components/Navbar'; import Footer from '../components/Footer'; import Image from 'next/image'; import SocialLinks from '../components/SocialLinks'; import BlogList from '../components/BlogList';
 
-const Home = () => { useEffect(() => { const links = document.querySelectorAll("nav a"); links.forEach(link => { link.addEventListener("click", event => { event.preventDefault(); const targetId = link.getAttribute("href").substring(1); document.getElementById(targetId).scrollIntoView({ behavior: "smooth" }); }); }); }, []);
+export default function Home() { return ( <> <Head> <title>Ayush Hardeniya | Portfolio</title> <meta name="description" content="Official portfolio of Ayush Hardeniya" /> <link rel="icon" href="/favicon.ico" /> </Head>
 
-return ( <> <Navbar />
-
-{/* Hero Section */}
-  <section id="home" className="hero-section text-center py-20 bg-gray-900 text-white">
-    <h1 className="text-5xl font-bold">Welcome to Ayush Hardeniya's Space</h1>
-    <p className="mt-4 text-lg">A blend of technology, lifestyle, and discipline.</p>
+<Navbar />
+  
+  {/* Hero Section */}
+  <section className="hero">
+    <Image src="/heroaH.jpg" alt="Hero Image" layout="fill" objectFit="cover" />
+    <div className="hero-content">
+      <h1>Ayush Hardeniya</h1>
+      <p>Tech Enthusiast | Coder | Video Editor</p>
+    </div>
   </section>
-
+  
   {/* About Section */}
-  <section id="about" className="py-16 px-10 bg-gray-100">
-    <h2 className="text-4xl font-bold text-center">About Me</h2>
-    <p className="mt-4 text-center max-w-3xl mx-auto">
-      I am <strong>Ayush Hardeniya</strong> [Legal Name: <strong>Ayush Sharma</strong>], a tech enthusiast, video editor, and disciplined learner passionate about coding and self-improvement.
-    </p>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I am Ayush Sharma, known as Ayush Hardeniya, a passionate learner...</p>
   </section>
-
+  
   {/* My Story Section */}
-  <section id="mystory" className="py-16 px-10 bg-white">
-    <h2 className="text-4xl font-bold text-center">My Story</h2>
-    <p className="mt-4 max-w-3xl mx-auto text-center">
-      My journey started with an interest in <strong>technology</strong> and <strong>self-discipline</strong>. Waking up at <strong>3 AM</strong> has given me the edge to balance learning and personal growth.
-    </p>
+  <section id="mystory">
+    <h2>My Story</h2>
+    <p>Here is a journey of my experiences...</p>
   </section>
-
+  
   {/* Lifestyle Section */}
-  <section id="lifestyle" className="py-16 px-10 bg-gray-100">
-    <h2 className="text-4xl font-bold text-center">Lifestyle</h2>
-    <ul className="mt-4 max-w-3xl mx-auto">
-      <li>💪 Strength Training & Yoga for fitness</li>
-      <li>📚 High-end coding & video editing</li>
-      <li>🕰️ Structured time management for efficiency</li>
-    </ul>
+  <section id="lifestyle">
+    <h2>My Lifestyle</h2>
+    <p>Disciplined routine, fitness, coding, and self-improvement...</p>
   </section>
-
+  
   {/* Blog Section */}
-  <section id="blog" className="py-16 px-10 bg-white">
-    <h2 className="text-4xl font-bold text-center">Blog</h2>
+  <section id="blog">
+    <h2>Latest Blogs</h2>
     <BlogList />
   </section>
-
+  
   {/* Social Links Section */}
-  <section id="links" className="py-16 px-10 bg-gray-100">
-    <h2 className="text-4xl font-bold text-center">Find Me Online</h2>
+  <section id="social">
+    <h2>Connect with Me</h2>
     <SocialLinks />
   </section>
-
+  
   {/* Contact Section */}
-  <section id="contact" className="py-16 px-10 bg-white">
-    <h2 className="text-4xl font-bold text-center">Contact</h2>
-    <p className="mt-4 text-center">You can reach me via email at <strong>connect@ayushhardeniya.in</strong></p>
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: connect@ayushhardeniya.in</p>
   </section>
-
+  
   <Footer />
 </>
 
-); };
+); }
 
-export default Home;
-
-      
