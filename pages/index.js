@@ -1,56 +1,52 @@
-import Head from 'next/head'; import Navbar from '../components/Navbar'; import Footer from '../components/Footer'; import Image from 'next/image'; import SocialLinks from '../components/SocialLinks'; import BlogList from '../components/BlogList';
+import { useState } from "react"; import Navbar from "../components/Navbar"; import Footer from "../components/Footer"; import BlogList from "../components/BlogList"; import SocialLinks from "../components/SocialLinks";
 
-export default function Home() { return ( <> <Head> <title>Ayush Hardeniya | Portfolio</title> <meta name="description" content="Official portfolio of Ayush Hardeniya" /> <link rel="icon" href="/favicon.ico" /> </Head>
+const Home = () => { const [activeSection, setActiveSection] = useState("about");
 
-<Navbar />
-  
-  {/* Hero Section */}
-  <section className="hero">
-    <Image src="/heroaH.jpg" alt="Hero Image" layout="fill" objectFit="cover" />
-    <div className="hero-content">
-      <h1>Ayush Hardeniya</h1>
-      <p>Tech Enthusiast | Coder | Video Editor</p>
-    </div>
-  </section>
-  
-  {/* About Section */}
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I am Ayush Sharma, known as Ayush Hardeniya, a passionate learner...</p>
+return ( <> <Navbar setActiveSection={setActiveSection} />
+
+{/* About Section */}
+  <section id="about" className="content">
+    <h1>About Me</h1>
+    <p>Hey! I am Ayush Hardeniya.</p>
+    <p><strong>[Legal Name:</strong> Ayush Sharma<b>]</b></p>
   </section>
   
   {/* My Story Section */}
-  <section id="mystory">
-    <h2>My Story</h2>
-    <p>Here is a journey of my experiences...</p>
+  <section id="mystory" className="content">
+    <h1>My Journey</h1>
+    <p>From the early morning hours of <b>3 AM</b> to the late-night grind of <b>coding</b>, <b>video editing</b>, and <b>self-improvement</b>, my journey has always been about pushing limits and breaking barriers.</p>
   </section>
   
   {/* Lifestyle Section */}
-  <section id="lifestyle">
-    <h2>My Lifestyle</h2>
-    <p>Disciplined routine, fitness, coding, and self-improvement...</p>
+  <section id="lifestyle" className="content">
+    <h1>About My Lifestyle</h1>
+    <p>I live a <strong>disciplined and goal-oriented life</strong>, balancing fitness, knowledge, and personal growth with a structured routine.</p>
   </section>
   
   {/* Blog Section */}
-  <section id="blog">
-    <h2>Latest Blogs</h2>
+  <section id="blog" className="content">
+    <h1>My Blog</h1>
     <BlogList />
   </section>
   
-  {/* Social Links Section */}
-  <section id="social">
-    <h2>Connect with Me</h2>
+  {/* Links Section */}
+  <section id="links" className="content">
+    <h1>Find Me On</h1>
     <SocialLinks />
+    <p>📌 Digital Portfolio: <a href="https://ayushhardeniya.carrd.co/" target="_blank">ayushhardeniya.carrd.co</a></p>
   </section>
   
   {/* Contact Section */}
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p>Email: connect@ayushhardeniya.in</p>
+  <section id="contact" className="content">
+    <h1>Contact</h1>
+    <p>Email: <a href="mailto:ayushhardeniya.vn@outlook.in">ayushhardeniya.vn@outlook.in</a></p>
   </section>
   
   <Footer />
 </>
 
-); }
+); };
 
+export default Home;
+
+    
