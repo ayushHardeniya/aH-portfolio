@@ -29,9 +29,7 @@ const Lifestyle = () => {
     <p>I believe in <strong>progress over perfection</strong>—making <strong>consistent efforts</strong> toward my goals while staying adaptable and open to learning. 🚀</p>
 </div>
     
-        </p>
-      </div>
-      <Footer />
+       <Footer />
     </>
   );
 };
