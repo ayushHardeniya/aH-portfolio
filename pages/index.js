@@ -1,36 +1,59 @@
-import Navbar from "../components/Navbar"; import Footer from "../components/Footer"; import SocialLinks from "../components/SocialLinks"; import { FaArrowUp } from "react-icons/fa"; import { useEffect, useState } from "react";
+import { useEffect } from "react"; import Navbar from "../components/Navbar"; import Footer from "../components/Footer"; import SocialLinks from "../components/SocialLinks"; import BlogList from "../components/BlogList";
 
-const Home = () => { const [showScroll, setShowScroll] = useState(false);
+const Home = () => { useEffect(() => { const links = document.querySelectorAll("nav a"); links.forEach(link => { link.addEventListener("click", event => { event.preventDefault(); const targetId = link.getAttribute("href").substring(1); document.getElementById(targetId).scrollIntoView({ behavior: "smooth" }); }); }); }, []);
 
-useEffect(() => { window.addEventListener("scroll", () => { setShowScroll(window.scrollY > 300); }); }, []);
+return ( <> <Navbar />
 
-return ( <> <Navbar /> <div className="container mx-auto px-4 py-8 text-gray-800"> {/* Lifestyle Section */} <section id="lifestyle" className="mb-12"> <h1 className="text-4xl font-bold text-center text-blue-600 mb-6">About My Lifestyle</h1> <p className="text-lg text-center max-w-2xl mx-auto"> I live a <strong>disciplined and goal-oriented life</strong>, balancing <strong>fitness, knowledge, and personal growth</strong> with a structured routine. My day starts early at <strong>3 AM</strong>, allowing focused time for <strong>learning, meditation, and self-improvement</strong>. </p> </section>
+{/* Hero Section */}
+  <section id="home" className="hero-section text-center py-20 bg-gray-900 text-white">
+    <h1 className="text-5xl font-bold">Welcome to Ayush Hardeniya's Space</h1>
+    <p className="mt-4 text-lg">A blend of technology, lifestyle, and discipline.</p>
+  </section>
 
-{/* Social Links */}
-    <section id="social-links" className="mb-12 text-center">
-      <h2 className="text-3xl font-semibold text-gray-700 mb-4">Connect with Me</h2>
-      <SocialLinks />
-    </section>
-    
-    {/* My Story */}
-    <section id="my-story" className="mb-12">
-      <h2 className="text-3xl font-semibold text-gray-700 text-center mb-4">My Story</h2>
-      <p className="text-lg max-w-3xl mx-auto text-center">
-        My journey has been all about <strong>learning, growth, and consistency</strong>. From coding to fitness, I believe in optimizing every aspect of life for <strong>long-term success</strong>.
-      </p>
-    </section>
-  </div>
-  
-  {/* Scroll to Top Button */}
-  {showScroll && (
-    <button
-      className="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700"
-      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-    >
-      <FaArrowUp size={24} />
-    </button>
-  )}
-  
+  {/* About Section */}
+  <section id="about" className="py-16 px-10 bg-gray-100">
+    <h2 className="text-4xl font-bold text-center">About Me</h2>
+    <p className="mt-4 text-center max-w-3xl mx-auto">
+      I am <strong>Ayush Hardeniya</strong> [Legal Name: <strong>Ayush Sharma</strong>], a tech enthusiast, video editor, and disciplined learner passionate about coding and self-improvement.
+    </p>
+  </section>
+
+  {/* My Story Section */}
+  <section id="mystory" className="py-16 px-10 bg-white">
+    <h2 className="text-4xl font-bold text-center">My Story</h2>
+    <p className="mt-4 max-w-3xl mx-auto text-center">
+      My journey started with an interest in <strong>technology</strong> and <strong>self-discipline</strong>. Waking up at <strong>3 AM</strong> has given me the edge to balance learning and personal growth.
+    </p>
+  </section>
+
+  {/* Lifestyle Section */}
+  <section id="lifestyle" className="py-16 px-10 bg-gray-100">
+    <h2 className="text-4xl font-bold text-center">Lifestyle</h2>
+    <ul className="mt-4 max-w-3xl mx-auto">
+      <li>💪 Strength Training & Yoga for fitness</li>
+      <li>📚 High-end coding & video editing</li>
+      <li>🕰️ Structured time management for efficiency</li>
+    </ul>
+  </section>
+
+  {/* Blog Section */}
+  <section id="blog" className="py-16 px-10 bg-white">
+    <h2 className="text-4xl font-bold text-center">Blog</h2>
+    <BlogList />
+  </section>
+
+  {/* Social Links Section */}
+  <section id="links" className="py-16 px-10 bg-gray-100">
+    <h2 className="text-4xl font-bold text-center">Find Me Online</h2>
+    <SocialLinks />
+  </section>
+
+  {/* Contact Section */}
+  <section id="contact" className="py-16 px-10 bg-white">
+    <h2 className="text-4xl font-bold text-center">Contact</h2>
+    <p className="mt-4 text-center">You can reach me via email at <strong>connect@ayushhardeniya.in</strong></p>
+  </section>
+
   <Footer />
 </>
 
