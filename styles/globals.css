@@ -1,0 +1,35 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.hero {
+  position: relative;
+  text-align: center;
+}
+
+.hero-img {
+  width: 100%;
+  opacity: 0.8;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.dropdown {
+  position: absolute;
+  background: white;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  text-align: center;
+  padding: 10px;
+  background: #222;
+  color: white;
+}
